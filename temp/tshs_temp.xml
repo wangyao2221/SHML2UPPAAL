@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TSHS_Ecore:System>
+	<tshss name="Agent" initialstate="id0">
+		<ownedtransitions name="Start_to_OnRail 0.6" probability="0.6" source="id0" target="id1">
+			<label kind="select"></label>
+			<label kind="guard">T==0</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment">T=0</label>
+		</ownedtransitions>
+		<ownedtransitions name="Start_to_OnCar 0.4" probability="0.4" source="id0" target="id2">
+			<label kind="select"></label>
+			<label kind="guard">T==0</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment">T=0</label>
+		</ownedtransitions>
+		<ownedtransitions name="OnRail_to_Chooseover" triggerevent="0" source="id1" target="id3">
+			<label kind="select"></label>
+			<label kind="guard">T==0</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedtransitions name="Oncar_to_ChooseOver" triggerevent="2" source="id2" target="id3">
+			<label kind="select"></label>
+			<label kind="guard">T==0</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedstates name="Start" urgent="1" id="id0"></ownedstates>
+		<ownedstates name="OnRail" urgent="1" id="id1"></ownedstates>
+		<ownedstates name="OnCar" urgent="1" id="id2"></ownedstates>
+		<ownedstates name="Choosever" id="id3"></ownedstates>
+		<declaration></declaration>
+	</tshss>
+	<tshss name="Travel" initialstate="id0">
+		<ownedodes name="e1">
+			<function name="f1">
+				<indevariable name="t"></indevariable>
+				<devariable name="E"></devariable>
+				<fright name="1"></fright>
+			</function>
+		</ownedodes>
+		<ownedodes name="e2">
+			<function name="f2">
+				<indevariable name="t"></indevariable>
+				<devariable name="E"></devariable>
+				<fright name="6"></fright>
+			</function>
+		</ownedodes>
+		<ownedodes name="e3">
+			<function name="f3">
+				<indevariable name="t"></indevariable>
+				<devariable name="E"></devariable>
+				<fright name="9"></fright>
+			</function>
+		</ownedodes>
+		<ownedtransitions name="Shanghai_to_Rail" triggerevent="1" source="id0" target="id1">
+			<label kind="select"></label>
+			<label kind="guard">T&lt;1</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedtransitions name="Shanghai_to_Car" triggerevent="3" source="id0" target="id2">
+			<label kind="select"></label>
+			<label kind="guard">T&lt;1</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedtransitions name="Rail_to_Suzhou" source="id1" target="id5">
+			<label kind="select"></label>
+			<label kind="guard">T&gt;=1&amp;&amp;T&lt;=2</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedtransitions name="Easy_to_Suzhou" source="id3" target="id5">
+			<label kind="select"></label>
+			<label kind="guard">T&gt;=2&amp;&amp;T&lt;=3</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedtransitions name="Heavy_to_Suzhou" source="id4" target="id5">
+			<label kind="select"></label>
+			<label kind="guard">T&gt;=3&amp;&amp;T&lt;=5</label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedtransitions name="Car_to_Easy 0.8" probability="0.6" source="id2" target="id3">
+			<label kind="select"></label>
+			<label kind="guard"></label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedtransitions name="Car_to_Heavy 0.2" probability="0.4" source="id2" target="id4">
+			<label kind="select"></label>
+			<label kind="guard"></label>
+			<label kind="synchronisation"></label>
+			<label kind="assignment"></label>
+		</ownedtransitions>
+		<ownedstates name="Shanghai" id="id0"></ownedstates>
+		<ownedstates name="Rail" id="id1">
+			<label kind="invariant">E'==1&amp;&amp;T&lt;2</label>
+		</ownedstates>
+		<ownedstates name="Car" urgent="1" id="id2"></ownedstates>
+		<ownedstates name="Easy" id="id3">
+			<label kind="invariant">E'==6&amp;&amp;T&lt;3</label>
+		</ownedstates>
+		<ownedstates name="Heavy" id="id4">
+			<label kind="invariant">E'==9&amp;&amp;T&lt;5</label>
+		</ownedstates>
+		<ownedstates name="Suzhou" id="id5"></ownedstates>
+		<declaration>hybrid clock E;</declaration>
+	</tshss>
+	<globalclocks name="T"></globalclocks>
+	<globalevents name="s_onrail"></globalevents>
+	<globalevents name="r_onrail"></globalevents>
+	<globalevents name="s_oncar"></globalevents>
+	<globalevents name="r_oncar"></globalevents>
+	<declaration></declaration>
+</TSHS_Ecore:System>

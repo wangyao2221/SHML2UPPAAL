@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TSHS_Ecore:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TSHS_Ecore="http://www.example.org/TSHS_Ecore" name="TravelAgent">
+  <tshss name="Agent" initialstate="//@tshss.0/@ownedstates.0">
+    <ownedtransitions xsi:type="TSHS_Ecore:ProbTransition" name="Start_to_OnRail 0.6" action="T=0" probability="0.6" psrc="//@tshss.0/@ownedstates.0" ptgt="//@tshss.0/@ownedstates.1">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T==0" tcondition="T==0" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ProbTransition" name="Start_to_OnCar 0.4" action="T=0" probability="0.4" psrc="//@tshss.0/@ownedstates.0" ptgt="//@tshss.0/@ownedstates.2">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T==0" tcondition="T==0" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ComTransition" name="OnRail_to_Chooseover" action="" triggerevent="//@globalevents.0" csrc="//@tshss.0/@ownedstates.1" ctgt="//@tshss.0/@ownedstates.3">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T==0" tcondition="T==0" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ComTransition" name="Oncar_to_ChooseOver" action="" triggerevent="//@globalevents.2" csrc="//@tshss.0/@ownedstates.2" ctgt="//@tshss.0/@ownedstates.3">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T==0" tcondition="T==0" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedstates name="Start" outgoingpt="//@tshss.0/@ownedtransitions.0 //@tshss.0/@ownedtransitions.1" urgent="1"/>
+    <ownedstates name="OnRail" outgoingct="//@tshss.0/@ownedtransitions.2" incomingpt="//@tshss.0/@ownedtransitions.0" urgent="1"/>
+    <ownedstates name="OnCar" outgoingct="//@tshss.0/@ownedtransitions.3" incomingpt="//@tshss.0/@ownedtransitions.1" urgent="1"/>
+    <ownedstates name="Choosever" incomingct="//@tshss.0/@ownedtransitions.2 //@tshss.0/@ownedtransitions.3"/>
+  </tshss>
+  <tshss name="Travel" initialstate="//@tshss.1/@ownedstates.0">
+    <ownedodes name="e1">
+      <function name="f1">
+        <indevariable name="t"/>
+        <devariable name="E"/>
+        <fright name="1"/>
+      </function>
+    </ownedodes>
+    <ownedodes name="e2">
+      <function name="f2">
+        <indevariable name="t"/>
+        <devariable name="E"/>
+        <fright name="6"/>
+      </function>
+    </ownedodes>
+    <ownedodes name="e3">
+      <function name="f3">
+        <indevariable name="t"/>
+        <devariable name="E"/>
+        <fright name="9"/>
+      </function>
+    </ownedodes>
+    <ownedtransitions xsi:type="TSHS_Ecore:ComTransition" name="Shanghai_to_Rail" triggerevent="//@globalevents.1" csrc="//@tshss.1/@ownedstates.0" ctgt="//@tshss.1/@ownedstates.1">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T&lt;1" tcondition="T&lt;1" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ComTransition" name="Shanghai_to_Car" triggerevent="//@globalevents.3" csrc="//@tshss.1/@ownedstates.0" ctgt="//@tshss.1/@ownedstates.2">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T&lt;1" tcondition="T&lt;1" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ComTransition" name="Rail_to_Suzhou" action="" csrc="//@tshss.1/@ownedstates.1" ctgt="//@tshss.1/@ownedstates.5">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T>=1&amp;&amp;T&lt;=2" tcondition="T>=1&amp;&amp;T&lt;=2" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ComTransition" name="Easy_to_Suzhou" action="" csrc="//@tshss.1/@ownedstates.3" ctgt="//@tshss.1/@ownedstates.5">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T>=2&amp;&amp;T&lt;=3" tcondition="T>=2&amp;&amp;T&lt;=3" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ComTransition" name="Heavy_to_Suzhou" action="" csrc="//@tshss.1/@ownedstates.4" ctgt="//@tshss.1/@ownedstates.5">
+      <ownedguard xsi:type="TSHS_Ecore:TemporalGuard" name="T>=3&amp;&amp;T&lt;=5" tcondition="T>=3&amp;&amp;T&lt;=5" onclock="//@globalclocks.0"/>
+    </ownedtransitions>
+    <ownedtransitions xsi:type="TSHS_Ecore:ProbTransition" name="Car_to_Easy 0.8" probability="0.6" psrc="//@tshss.1/@ownedstates.2" ptgt="//@tshss.1/@ownedstates.3"/>
+    <ownedtransitions xsi:type="TSHS_Ecore:ProbTransition" name="Car_to_Heavy 0.2" probability="0.4" psrc="//@tshss.1/@ownedstates.2" ptgt="//@tshss.1/@ownedstates.4"/>
+    <ownedstates name="Shanghai" outgoingct="//@tshss.1/@ownedtransitions.0 //@tshss.1/@ownedtransitions.1"/>
+    <ownedstates name="Rail" slaveode="//@tshss.1/@ownedodes.0" outgoingct="//@tshss.1/@ownedtransitions.2" incomingct="//@tshss.1/@ownedtransitions.0"/>
+    <ownedstates name="Car" incomingct="//@tshss.1/@ownedtransitions.1" outgoingpt="//@tshss.1/@ownedtransitions.3" urgent="1"/>
+    <ownedstates name="Easy" slaveode="//@tshss.1/@ownedodes.1" incomingpt="//@tshss.1/@ownedtransitions.3"/>
+    <ownedstates name="Heavy" slaveode="//@tshss.1/@ownedodes.2" outgoingpt="//@tshss.1/@ownedtransitions.4"/>
+    <ownedstates name="Suzhou" incomingct="//@tshss.1/@ownedtransitions.2" incomingpt="//@tshss.1/@ownedtransitions.4"/>
+  </tshss>
+  <globalclocks name="T"/>
+  <globalevents name="s_onrail"/>
+  <globalevents name="r_onrail"/>
+  <globalevents name="s_oncar"/>
+  <globalevents name="r_oncar"/>
+</TSHS_Ecore:System>
