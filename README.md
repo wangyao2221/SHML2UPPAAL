@@ -3,4 +3,4 @@ Language Workbench: https://github.com/wangyao2221/SHML2UPPAAL/tree/master/Langu
 
 Modeling Workbench: https://github.com/wangyao2221/SHML2UPPAAL/tree/master/ModelingWorkbench
 
-Transformation Engine: https://github.com/wangyao2221/SHML2UPPAAL/tree/master/Transformat ionEngine
+Transformation Engine: https://github.com/wangyao2221/SHML2UPPAAL/tree/master/TransformationEngine
