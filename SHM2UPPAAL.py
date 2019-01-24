@@ -2,6 +2,8 @@
 
 import XmlTransform as xt
 import collections
+import sys, getopt
+
 
 def remove_some_useless(tshs):
     tshs["TSHS_Ecore:System"].__delitem__("@name")
@@ -370,14 +372,12 @@ def add_system_define(tshs):
     
     tshs["nta"]["system"] = "system " + systems + ";"
     
-def tshs2uppaal():
-    input_path = "input/travelagent.tshs_ecore"
+def tshs2uppaal(input_path,output_path):
     temp_path = "temp/tshs_temp.xml"
-    output_path = "output/travelagent.xml"
-    tshs = xt.parse_xml(input_path)
+    
+    tshs = xt.parse_xml("input/travelagent.tshs_ecore")
     preprocess(tshs)
     generate_transition_label(tshs)
-    
     
     remove_some_useless(tshs)
     modify_some_attr(tshs)
@@ -394,5 +394,20 @@ def tshs2uppaal():
     
     xt.write_xml(tshs,output_path)
 
-tshs2uppaal()
+def main(argv=None):
+    opts, args = getopt.getopt(sys.argv[1:], "hi:o:")
+    input_path=""
+    output_path=""
+    for op, value in opts:
+        if op == "-i":
+            input_path = value
+        elif op == "-o":
+            output_path = value
+        elif op == "-h":
+            usage()
+            sys.exit()
+    
+    tshs2uppaal(input_path, output_path)
 
+if __name__ == "__main__":
+    sys.exit(main())
