@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ecnu.TSHS.model/src" modelPluginID="ecnu.TSHS.model"
+    modelName="TSHS_Ecore" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>TSHS_Ecore.ecore</foreignModel>
+  <genPackages prefix="TSHS_Ecore" disposableProviderFactory="true" ecorePackage="TSHS_Ecore.ecore#/">
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//System/tshss"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//System/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//System/globalvariables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//System/globalclocks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//System/globalevents"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//TSHS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//TSHS/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TSHS/initialstate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TSHS/ownedodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TSHS/localvariables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TSHS/localevents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TSHS/localclock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TSHS/ownedtransitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TSHS/ownedstates"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Variable/value"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Clock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Clock/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Clock/ticks"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Event/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Transition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Transition/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//Transition/ownedguard"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//Transition/triggerevent"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Guard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Guard/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//TemporalGuard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//TemporalGuard/tcondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//TemporalGuard/onclock"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//EventGuard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//EventGuard/econdition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//EventGuard/onevent"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//EvaluateGuard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//EvaluateGuard/vcondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//EvaluateGuard/onvariable"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//ComTransition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//ComTransition/csrc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//ComTransition/ctgt"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//ProbTransition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//ProbTransition/probability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//ProbTransition/psrc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//ProbTransition/ptgt"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//State/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//State/slaveode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//State/outgoingct"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//State/incomingct"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//State/outgoingpt"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//State/incomingpt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//State/urgent"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//ODE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//ODE/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//ODE/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//ODE/interval"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//ODE/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//Function/indevariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//Function/devariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSHS_Ecore.ecore#//Function/fright"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//IndeVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//IndeVariable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//DeVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//DeVariable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Fright">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Fright/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Condition/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TSHS_Ecore.ecore#//Interval">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Interval/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Interval/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Interval/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSHS_Ecore.ecore#//Interval/subinterval"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
